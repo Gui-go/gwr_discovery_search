@@ -3,7 +3,7 @@ resource "google_discovery_engine_data_store" "tf_gwr_references_datastore" {
     project = var.proj_id
     location = "global"
     # data_store_id = "${var.proj_name}-references-datastore-${formatdate("YYYYMMDD-HHmm", timestamp())}"
-    data_store_id = "${var.proj_name}-references-ds"
+    data_store_id = "${var.proj_name}-ref-ds"
     display_name = "References DataStore"
     industry_vertical = "GENERIC"
     content_config = "CONTENT_REQUIRED"
@@ -18,7 +18,7 @@ resource "google_discovery_engine_data_store" "tf_gwr_allreferences_datastore" {
     project = var.proj_id
     location = "global"
     # data_store_id = "${var.proj_name}-allreferences-datastore-${formatdate("YYYYMMDD-HHmm", timestamp())}"
-    data_store_id = "${var.proj_name}-allreferences-ds"
+    data_store_id = "${var.proj_name}-allref-ds"
     display_name = "ReferencesAll DataStore"
     industry_vertical = "GENERIC"
     content_config = "CONTENT_REQUIRED"
