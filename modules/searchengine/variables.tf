@@ -17,3 +17,9 @@ variable "zone" {
   description = "Zone of the resources"
   type        = string
 }
+
+variable "datastore_prevent_destroy" {
+  description = "Prevent destruction of resource"
+  type        = bool
+}
+

@@ -19,4 +19,3 @@ resource "google_storage_bucket" "tf_references_bucket" {
     owner       = var.tag_owner
   }
 }
-
