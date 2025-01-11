@@ -18,7 +18,7 @@ resource "google_discovery_engine_search_engine" "tf_gwr_searchengine" {
     collection_id = "default_collection"
     location = google_discovery_engine_data_store.tf_gwr_references_datastore.location
     industry_vertical = "GENERIC"
-    data_store_ids = [google_discovery_engine_data_store.tf_ds_personal.tf_gwr_references_datastore]
+    data_store_ids = [google_discovery_engine_data_store.tf_gwr_references_datastore.data_store_id]
     common_config {
         company_name = "Guigo"
     }

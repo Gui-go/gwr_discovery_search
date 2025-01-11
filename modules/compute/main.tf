@@ -13,7 +13,7 @@ data "google_secret_manager_secret_version" "tf_mainsecret" {
 
 data "google_secret_manager_secret_version" "tf_secretgitprivsshk" {
   project = var.proj_id
-  secret  = "secret-gcp-ssh-key"
+  secret  = "git-ssh-key"
   version = "latest"
 }
 
@@ -63,7 +63,6 @@ resource "google_compute_instance" "tf_computeinstance" {
 
       echo "Setting parameters ------------------------------------------"
       export HOME=/home/guilhermeviegas1993
-      echo "export cleanbucket_name=${var.cleanbucket_name}" >> /home/guilhermeviegas1993/.bashrc
       echo "export rstudio_secret=${data.google_secret_manager_secret_version.tf_mainsecret.secret_data}" >> /home/guilhermeviegas1993/.bashrc 
       mkdir -p ~/.ssh
       echo "${data.google_secret_manager_secret_version.tf_secretgitprivsshk.secret_data}" > /home/guilhermeviegas1993/.ssh/id_rsa
@@ -121,7 +120,7 @@ resource "google_compute_instance" "tf_computeinstance" {
 
 resource "google_service_account" "tf_computeinstance_service_account" {
   project      = var.proj_id
-  account_id   = "${var.proj_name}-serviceaccount"
+  account_id   = "${var.proj_name}-sa"
   display_name = "Service account for VM to access GCS"
 }
 

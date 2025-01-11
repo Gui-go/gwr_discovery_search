@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  ui:
+    build:
+      context: .
+    container_name: ui
+    ports:
+      - "80:80"
+
